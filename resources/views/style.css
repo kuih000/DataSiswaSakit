@@ -1,0 +1,89 @@
+.show-modal {
+    font-size: 35px;
+    line-height: 25px;
+    padding: 15px 30px;
+    margin: 15px 5px;
+    border: none;
+    background-color: rgb(106, 229, 234);
+    color: rgb(0, 0, 0);
+    border-radius:  5px;
+    cursor: pointer;
+    transform: rotateX(30deg);
+}
+
+.show-modal:hover {
+    font-size: 35px;
+    line-height: 25px;
+    padding: 15px 30px;
+    margin: 15px 5px;
+    border: none;
+    background-color: rgb(2, 144, 149);
+    color: rgb(0, 0, 0);
+    border-radius:  5px;
+    cursor: pointer;
+    transform: rotateX(30deg);
+}
+
+.close-modal {
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    font-size: 50px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background-color: lightgray;
+    border-radius: 20px ;
+    margin-right: 5px;
+}
+
+.close-modal:hover {
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    font-size: 50px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(210, 53, 53);
+    border-radius: 20px ;
+    margin-right: 5px;
+}
+
+
+
+p {
+    font-size: 20px;
+    line-height: 36px;
+}
+
+.modal {
+    position: absolute;
+    bottom: 50%;
+    left: -25%;
+    transform: translate(50%, 50%);
+    width: 75%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    border: 5px solid lightgray;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 3;
+}
+
+.hidden {
+    display: none;
+}

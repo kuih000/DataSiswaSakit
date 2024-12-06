@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catatan', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_siswa');
+            $table->unsignedBigInteger('id_kelas');
+            $table->string('diagnosa');
+            $table->date('tanggal_masuk');
+            $table->date('tanggal_keluar')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catatan');
+        Schema::dropIfExists('siswa');
     }
 };
