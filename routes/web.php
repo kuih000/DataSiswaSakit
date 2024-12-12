@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (){
+    return view('auth.register');
 });
 
 
@@ -17,6 +17,25 @@ Route::get('/siswa', action: function(){
     return view('kelas.index');
     
 });
+
+Route::get('/our-team', action: function(){
+
+    // ini perintahnya...
+    return view('OurTeam');
+    
+});
+
+Route::get('/Home', action: function(){
+
+    // ini perintahnya...
+    return view('Error');
+    
+});
+
+Route::middleware(['auth'])->get('/restricted', function () {
+    return view('Error'); // A page that's restricted to logged-in users
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

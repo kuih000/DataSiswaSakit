@@ -13,7 +13,7 @@ class KelasController extends Controller
     public function index()
     {
         $data = Kelas::all();
-        return view('siswa.index', compact('data'));
+        return view('kelas.kelas', compact('data'));
     }
 
     /**
@@ -29,7 +29,9 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all(); // mengambil nilai yang diinputkan dari form
+        Kelas::create($input); // if nilai sudah dapet, maka diinputkna melalui input
+        return back()->with("success","data siswa berhasil di input");
     }
 
     /**
@@ -59,8 +61,10 @@ class KelasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kelas $kelas)
+    public function destroy($id)
     {
-        //
+        $data = Kelas::find($id);
+        $data->delete();
+        return back();
     }
 }

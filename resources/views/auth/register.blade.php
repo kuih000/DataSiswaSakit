@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.template_two')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <center><div class="card-header">{{ __('Register') }}</div></center>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -69,6 +69,9 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="card-footer">
+                    <center><p style="margin-top: 20px;">Already have an account?, click <a href="/login">here</a></p></center>
                 </div>
             </div>
         </div>

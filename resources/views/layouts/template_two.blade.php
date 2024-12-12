@@ -21,21 +21,20 @@
   </style>
  
 </head>
+ 
 <body>
-  <div id="loading-screen" style="--fade-time:2.5s;">
-    <div class="dot-container">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-</div>
-
-
-</script>
+  <body>
+    <div id="loading-screen" style="--fade-time:2.5s;">
+      <div class="dot-container">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+      </div>
+  </div>
   <!-- Navbar Area -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-opacity-75" style="background-color: #0c007b; height:72px;">
     <div class="container">
-      <a class="navbar-brand" href="/home">
+      <a class="navbar-brand" href="/Home">
         <img src="https://binaqurani.sch.id/wp-content/uploads/2024/03/Logo-BQ-Islamic-Boarding-School-2.png"
           width="150" alt="Logo-BQ">
       </a>
@@ -46,13 +45,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/home">Home</a>
+            <a class="nav-link" aria-current="page" href="/Home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/kelas">Data Kelas</a>
+            <a class="nav-link" href="/Home">Data Kelas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/siswa">Data Siswa</a>
+            <a class="nav-link" href="/Home">Data Siswa</a>
           </li>
         </ul>
         <div class="d-flex">
@@ -74,8 +73,8 @@
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a style="font-size: 35px" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          ☰
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -84,8 +83,7 @@
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-                            <hr>
-                            <a href="/our-team" class="dropdown-item">Our Team</a>
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -119,72 +117,70 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 <style>
-/* Loading Screen Base Styles */
-/* Loading Screen Base Styles */
 #loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Background blur effect */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 1; /* Fully visible */
-    animation: fade-out var(--fade-time) ease forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Background blur effect */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1; /* Fully visible */
+  animation: fade-out var(--fade-time) ease forwards;
 }
 
 
 /* Keyframes for Fading Out */
 @keyframes fade-out {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
+  0% {
+      opacity: 1;
+      visibility: visible;
+  }
+  100% {
+      opacity: 0;
+      visibility: hidden;
+  }
 }
 
 /* Dots Animation */
 .dot-container {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
-    background-color: #333;
-    border-radius: 50%;
-    opacity: 0;
-    animation: dot-animation 3.5s infinite;
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dot-animation 3.5s infinite;
 }
 
 .dot:nth-child(1) {
-    animation-delay: 0s;
+  animation-delay: 0s;
 }
 
 .dot:nth-child(2) {
-    animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .dot:nth-child(3) {
-    animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 
 @keyframes dot-animation {
-    0%, 80%, 100% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 1;
-    }
+  0%, 80%, 100% {
+      opacity: 0;
+  }
+  40% {
+      opacity: 1;
+  }
 }
 
 /* Progress Bar Container */
@@ -195,34 +191,34 @@
 
 </style>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const loadingScreen = document.getElementById('loading-screen');
+  document.addEventListener('DOMContentLoaded', function () {
+      const loadingScreen = document.getElementById('loading-screen');
 
-        // Show the loading screen on link clicks
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function (event) {
-                const target = this.getAttribute('target');
-                const href = this.getAttribute('href');
+      // Show the loading screen on link clicks
+      document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function (event) {
+              const target = this.getAttribute('target');
+              const href = this.getAttribute('href');
 
-                // Show loading only for internal navigation (not external links or new tabs)
-                if (href && !href.startsWith('http') && target !== '_blank') {
-                    loadingScreen.style.display = 'flex';
-                    loadingScreen.classList.remove('hidden');
+              // Show loading only for internal navigation (not external links or new tabs)
+              if (href && !href.startsWith('http') && target !== '_blank') {
+                  loadingScreen.style.display = 'flex';
+                  loadingScreen.classList.remove('hidden');
 
-                    // Give time for navigation before hiding the screen
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                    }, 5000);
-                }
-            });
-        });
+                  // Give time for navigation before hiding the screen
+                  setTimeout(() => {
+                      loadingScreen.style.display = 'none';
+                  }, 5000);
+              }
+          });
+      });
 
-        // Optionally hide the loading screen after the page loads
-        window.addEventListener('load', function () {
-          setTimeout(() => {
-            loadingScreen.classList.add('hidden'); // Apply the hidden class
-        }, 500); // Optional delay for better effect
-        });
-    });
+      // Optionally hide the loading screen after the page loads
+      window.addEventListener('load', function () {
+        setTimeout(() => {
+          loadingScreen.classList.add('hidden'); // Apply the hidden class
+      }, 500); // Optional delay for better effect
+      });
+  });
 </script>
 </html>

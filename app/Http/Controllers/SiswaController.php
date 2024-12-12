@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class SiswaController extends Controller
 {
@@ -13,7 +15,8 @@ class SiswaController extends Controller
     public function index()
     {
         $data = Siswa::all();
-        return view('kelas.index', compact('data'));
+        $kelas = Kelas::all();
+        return view('kelas.index', compact('data', 'kelas'));
     }
 
     /**
@@ -46,9 +49,10 @@ class SiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Siswa $siswa)
+    public function edit($id)
     {
-        //
+        $product = Siswa::findOrFail($id);
+        return view('siswa.edit', compact('product'));
     }
 
     /**

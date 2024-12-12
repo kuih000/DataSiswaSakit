@@ -1,14 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Home') }}</div>
-                <div style="margin: 10px;">
-                    <button style="border: 1px solid grey; border-radius: 2px;"><a style="text-decoration-line: none; color: black;, background-color:white;" href="/siswa">Kelas 9</a></button>
-                </div>
+            <div class="card" style="margin-top: 100px">
+                <div class="card-header" style="">{{ __('Home') }}</div>
+                <div class="row">
+                    <div class="card" style="width: 18rem; margin: 15px;">
+                        <div class="card-body">
+                          <h5 class="card-title">Pendataan Siswa Yang sakit</h5>
+                          <p class="card-text">Halaman untuk mendata siswa yang sakit, Bisa di Edit, Hapus, dan diuabah</p>
+                          <a href="/siswa" class="btn btn-primary">Data -></a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin: 15px; margin-left: 137px;">
+                        <div class="card-body">
+                          <h5 class="card-title">Pendataan Kelas untuk siswa</h5>
+                          <p class="card-text">Halaman Supaya mengetahui siswa yang sakit dari kelas mana</p>
+                          <a href="/kelas" class="btn btn-primary">Data -></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

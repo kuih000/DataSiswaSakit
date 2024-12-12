@@ -21,7 +21,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>kelas</label>
-                                    <input type="number" name="id_kelas" value="{{$data->id_kelas}}" class="form-control" required>
+                                    <input type="text" name="nama_kelas" value="{{$data->kelas->nama_kelas}}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -43,7 +43,15 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>tanggal keluar</label>
-                                    <input name="tanggal_keluar" cols="30" rows="10" class="form-control" value="{{$data->tanggal_keluar}}"></input>
+                                    <input type="date" name="tanggal_keluar" cols="30" rows="10" class="form-control" value="{{$data->tanggal_keluar}}"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Photo</label>
+                                    <input class="form-control" name="photo" type="file" id="photo">
                                 </div>
                             </div>
                         </div>
@@ -70,7 +78,7 @@
                             </tr>
                             <tr>
                                 <th>Kelas</th>
-                                <td>{{$data->id_kelas}}</td>
+                                <td>{{$data->kelas->nama_kelas}}</td>
                             </tr>
                             <tr>
                                 <th>diagnosa</th>
@@ -83,6 +91,10 @@
                             <tr>
                                 <th>Tanggal Keluar</th>
                                 <td>{{$data->tanggal_keluar}}</td>
+                            </tr>
+                            <tr>
+                                <th>Photo</th>
+                                <td>{{$data->photo}}</td>
                             </tr>
                         </table>
                     </div>
